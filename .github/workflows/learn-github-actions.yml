@@ -1,0 +1,20 @@
+name: learn-github-actions
+on: [push]
+jobs:
+  simple-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v4
+        
+      - name: 'Use node'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 'Install bats'
+        run: npm install -g bats
+      
+      - name: 'Check bats version'
+        run: bats -v
+  
