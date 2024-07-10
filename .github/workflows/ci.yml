@@ -2,12 +2,12 @@ name: Continuous Integration Workflow
 on:
   pull_request:
     branches:
-      -main
+      - 'main'
     paths:
-      - 'web/**'  
+      - 'web/**'
   push:
-    branches: 
-      - main
+    branches:
+      - 'main'
     paths:
       - 'web/**'
 jobs:
@@ -27,5 +27,3 @@ jobs:
 
       - name: 'Run tests'
         run: npm run test
-
-
