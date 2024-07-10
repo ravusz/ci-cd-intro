@@ -3,13 +3,9 @@ on:
   pull_request:
     branches:
       - 'main'
-    paths:
-      - 'web/**'
   push:
     branches:
       - 'main'
-    paths:
-      - 'web/**'
 jobs:
   test:
     name: 'Run unit tests'
@@ -21,6 +17,12 @@ jobs:
     steps:
       - name: 'Checkout repository'
         uses: actions/checkout@v2
+
+      - name: 'Debug Info'
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "Contents of directory:"
+          ls -la
 
       - name: 'Install Dependencies'
         run: npm install
